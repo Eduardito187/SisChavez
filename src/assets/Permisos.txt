@@ -1,0 +1,169 @@
+{
+    title: 'Listar Control de LLaves P1',--
+},
+{
+    title: 'Crear Control de LLaves P2',--
+},
+{
+    title: 'Editar Control de LLaves P3',--
+}
+{
+    title: 'Listar Sucursales P4',--
+},
+{
+    title: 'Crear Sucursales P5',--
+},
+{
+    title: 'Editar Sucursales P6',--
+},
+{
+    title: 'Listar Seguimientos P7',--
+},
+{
+    title: 'Crear Seguimientos P8',--
+},
+{
+    title: 'Editar Seguimientos P9',--
+},
+{
+    title: 'Listar Lotes P10',--
+},
+{
+    title: 'Crear Lotes P11',--
+},
+{
+    title: 'Editar Lotes P12',--
+},
+{
+    title: 'Listar Productos P13',--
+},
+{
+    title: 'Crear Productos P14',--
+},
+{
+    title: 'Editar Productos P15',--
+},
+{
+    title: 'Listar Salida de Producto P16',
+},
+{
+    title: 'Crear Salida de Producto P17',
+},
+{
+    title: 'Editar Salida de Producto P18',
+},
+{
+    title: 'Listar Extintores P19',--
+},
+{
+    title: 'Crear Extintores P20',--
+},
+{
+    title: 'Editar Extintores P21',--
+},
+
+{
+    title: 'Listar Proveedores P22',--
+},
+{
+    title: 'Crear Proveedores P23',--
+},
+{
+    title: 'Editar Proveedores P24'--
+},
+{
+    title: 'Listar Recepcion P25'--
+},
+{
+    title: 'Crear Recepcion P26'--
+},
+{
+    title: 'Editar Recepcion P27'--
+},
+{
+    title: 'Listar Empresa de Seguridad P28'--
+},
+{
+    title: 'Crear Empresa de Seguridad P29'--
+},
+{
+    title: 'Editar Empresa de Seguridad P30'
+},
+{
+    title: 'Listar Guardias P31'--
+},
+{
+    title: 'Crear Guardias P32'--
+},
+{
+    title: 'Editar Guardias P33'
+},
+{
+    title: 'Listar Control Diario P34'--
+},
+{
+    title: 'Crear Control Diario P35'--
+},
+{
+    title: 'Editar Control Diario P36'
+},
+{
+    title: 'Listar Tareas P37'--
+},
+{
+    title: 'Crear Tareas P38'--
+},
+{
+    title: 'Editar Tareas P39'--
+},
+{
+    title: 'Listar Cuentas P40'--
+},
+{
+    title: 'Crear Cuentas P41'--
+},
+{
+    title: 'Editar Cuentas P42'--
+}
+{
+    title: 'Listar Rangos P43'--
+},
+{
+    title: 'Crear Rangos P44'--
+},
+{
+    title: 'Editar Rangos P45'
+}
+{
+    title: 'Permisos Admin P46'--
+},
+{
+    title: 'Panel Admin P47'--
+},
+{
+    title: 'Listar Control de Discos P48'
+},
+{
+    title: 'Crear Control de Discos P49'
+},
+{
+    title: 'Editar Control de Discos P50'
+},
+{
+    title: 'Listar Trabajadores P51'--
+},
+{
+    title: 'Crear Trabajadores P52'--
+},
+{
+    title: 'Editar Trabajadores P53'--
+},
+{
+    title: 'Listar Asistencia P54'--
+},
+{
+    title: 'Crear Asistencia P55'--
+},
+{
+    title: 'Editar Asistencia P56'
+}
