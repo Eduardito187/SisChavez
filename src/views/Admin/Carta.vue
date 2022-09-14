@@ -23,8 +23,13 @@
           :title="data.nombre"
           :description="''"
         >
-          <a-avatar slot="avatar" :size="70" :src="data.foto" />
+          <a-avatar slot="avatar" :size="70" :src="data.foto" />  
         </a-card-meta>
+        <div :style="{position: 'absolute',bottom: '5px', right: '5px'}">
+          <a-button icon="delete" @click="eliminarCuenta()">
+            Eliminar
+          </a-button>
+        </div>
       </b-col>
     </b-row>
     <a-drawer
@@ -346,6 +351,35 @@ export default {
     };
   },
   methods: {
+    async eliminarCuenta(){
+        await this.$apollo.mutate({
+            mutation: gql`
+              mutation delCuenta($ID: Int!) {
+                delCuenta(ID: $ID) {
+                  Respuesta
+                }
+              }
+            `,
+            variables: {
+              ID: parseInt(this.data.ID)
+            }
+          })
+          .then(result => {
+            if (result.data.delCuenta != null) {
+              if (result.data.delCuenta.Respuesta != null && result.data.delCuenta.Respuesta) {
+                this.$notification.open({
+                  message: this.data.nombre,
+                  description: "Cuenta eliminada",
+                  onClick: () => {
+                    console.log("Notification Clicked!");
+                  },
+                  placement: "bottomRight"
+                });
+              }
+              this.$socket.emit("Sumar_Linea", true);
+            }
+          });
+    },
     async update_pwd() {
       var a = prompt("Nueva Contraseña", "");
       if (a != null) {

@@ -1,7 +1,7 @@
 <template>
   <div class="ComboNombre">
     <b-overlay :show="c_s" rounded="sm">
-      <a-select default-value="" v-model="valor" show-search placeholder=".." option-filter-prop="children" style="width: 100%;" :filter-option="filterOption" @focus="handleFocus" @blur="handleBlur" @change="change()" >
+      <a-select default-value="" v-model="valor" show-search placeholder=".." option-filter-prop="children" style="width: 100%;" :filter-option="filterOption" @focus="handleFocus" @blur="handleBlur" @change="change()" :disabled="disable">
         <a-select-option v-for="d in valores" :key="d.text" :value="d.value">
           {{ d.text }}
         </a-select-option>
@@ -17,8 +17,18 @@ export default {
   data() {
     return {
       valor: null,
+      disable: false,
       c_s: false,
       valores: [],
+      areas: gql`
+        query {
+          Areas {
+            ID
+            codArea
+            Nombre
+          }
+        }
+      `,
       resposables: gql`
         query {
           ResponsablesHabil {
@@ -119,7 +129,25 @@ export default {
     },
     dato: {
       type: [String, Number]
+    },
+    Disabled: {
+      type: Boolean
     }
+  },
+  watch: {
+    Disabled: {
+      immediate: true,
+      handler(val, oldVal) {
+        //nuevo--anterior
+        if (val != null && oldVal != null) {
+          if (val != oldVal) {
+            if (val === false || val === true) {
+              this.disable = val;
+            }
+          }
+        }
+      }
+    },
   },
   methods: {
     handleBlur() {
@@ -177,6 +205,8 @@ export default {
         x=obj.Encargados;
       } else if (this.tipo == "resposables"){
         x=obj.ResponsablesHabil;
+      } else if (this.tipo == "areas"){
+        x=obj.Areas;
       }
       let t = "";
       for (let index = 0; index < x.length; index++) {
@@ -215,6 +245,8 @@ export default {
       this.consultar(this.encargados);
     } else if(this.tipo == "resposables"){
       this.consultar(this.resposables);
+    } else if(this.tipo == "areas"){
+      this.consultar(this.areas);
     }
   }
 };
