@@ -5,6 +5,7 @@ import {
   restartWebsockets
 } from "vue-cli-plugin-apollo/graphql-client";
 import {URL_APICHAVEZ} from "./Configuracion";
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
 // Install the vue plugin
 Vue.use(VueApollo);
@@ -37,7 +38,7 @@ const defaultOptions = {
   // You need to pass a `wsEndpoint` for this to work
   websocketsOnly: false,
   // Is being rendered on the server?
-  ssr: false
+  ssr: false,
 
   // Override default apollo link
   // note: don't override httpLink here, specify httpLink options in the
@@ -45,7 +46,7 @@ const defaultOptions = {
   // link: myLink
 
   // Override default cache
-  // cache: myCache
+  cache: new InMemoryCache(),
 
   // Override the way the Authorization header is set
   // getAuth: (tokenName) => ...
