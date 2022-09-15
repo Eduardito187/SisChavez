@@ -4,7 +4,7 @@ import {
   createApolloClient,
   restartWebsockets
 } from "vue-cli-plugin-apollo/graphql-client";
-import {URL_APICHAVEZ} from "./Configuracion";
+import {URL_APICHAVEZ} from "./Config/Configuracion";
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 // Install the vue plugin

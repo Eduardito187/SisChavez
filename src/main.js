@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import {URL_SISCHAVEZ} from "./Configuracion";
+import {URL_SISCHAVEZ} from "./Config/Configuracion";
 import { createProvider } from "./vue-apollo";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faUserSecret } from "@fortawesome/free-solid-svg-icons";

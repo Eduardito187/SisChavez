@@ -223,7 +223,7 @@ import gql from "graphql-tag";
 import Archivos from "./Archivos.vue";
 import Personas from "../Tarea/Personas.vue";
 import ComboNombre from "../../components/ComboNombre.vue";
-import { Gestion } from "../../Configuracion";
+import { Gestion } from "../../Config/Configuracion";
 export default {
   data() {
     return {

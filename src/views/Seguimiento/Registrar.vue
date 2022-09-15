@@ -86,7 +86,7 @@
 import ComboNombre from "../../components/ComboNombre.vue";
 import gql from "graphql-tag";
 import { Button } from "ant-design-vue";
-import { Gestion } from "../../Configuracion";
+import { Gestion } from "../../Config/Configuracion";
 export default {
   data() {
     return {

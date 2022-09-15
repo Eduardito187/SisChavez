@@ -102,7 +102,7 @@
 <script>
 const axios = require("axios");
 import gql from "graphql-tag";
-import {URL_APICHAVEZ} from "./../Configuracion"
+import {URL_APICHAVEZ} from "./../Config/Configuracion"
 export default {
   name: "MiPerfil",
   data() {

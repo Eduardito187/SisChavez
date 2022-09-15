@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueSocketIO from "vue-socket.io";
-import {URL_SISCHAVEZ} from "./Configuracion";
+import {URL_SISCHAVEZ} from "./Config/Configuracion";
 import store from "./store";
 
 const socket = new VueSocketIO({

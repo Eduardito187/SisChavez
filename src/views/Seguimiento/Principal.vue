@@ -46,7 +46,7 @@ import RegInstantaneo from "./RegistrarInst.vue";
 import Lista from "./Lista.vue";
 import Nav from "./Nav.vue";
 import ListaHistorico from "./ListaHistorico.vue";
-import { Gestion } from "../../Configuracion";
+import { Gestion } from "../../Config/Configuracion";
 export default {
   data() {
     return {
