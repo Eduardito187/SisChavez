@@ -108,6 +108,7 @@
   </b-card>
 </template>
 <script>
+  
 import gql from "graphql-tag";
 import Personas from "../Tarea/Personas.vue";
 import Ctrllaves from "./Ctrllaves.vue";
