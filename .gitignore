@@ -105,3 +105,4 @@ dist
 
 #Config folder
 !/src/Config
+src/Config/Configuracion.js
