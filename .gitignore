@@ -104,4 +104,4 @@ dist
 .tern-port
 
 #Config folder
-src/Config/
+!/src/Config

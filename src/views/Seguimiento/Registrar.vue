@@ -83,7 +83,6 @@
   </div>
 </template>
 <script>
-  
 import ComboNombre from "../../components/ComboNombre.vue";
 import gql from "graphql-tag";
 import { Button } from "ant-design-vue";
