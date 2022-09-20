@@ -1,11 +1,12 @@
 <template>
   <div class="ComboNombre">
-    <b-overlay :show="c_s" rounded="sm">
-      <a-select default-value="" v-model="valor" show-search placeholder=".." option-filter-prop="children" style="width: 100%;" :filter-option="filterOption" @focus="handleFocus" @blur="handleBlur" @change="change()" :disabled="disable">
+    <b-overlay :show="c_s" rounded="sm" :style="{display:'flex'}">
+      <a-select default-value="" v-model="valor" show-search placeholder=".." option-filter-prop="children" :style="{width: type == 'Btn' && valor != null ? '90%' : '100%'}" :filter-option="filterOption" @focus="handleFocus" @blur="handleBlur" @change="change()" :disabled="disable">
         <a-select-option v-for="d in valores" :key="d.text" :value="d.value">
           {{ d.text }}
         </a-select-option>
       </a-select>
+      <a-button v-if="type == 'Btn' && valor != null" type="primary" shape="circle" icon="close-circle" @click="unSelectChange()" :style="{marginLeft: '5px'}" />
     </b-overlay>
   </div>
 </template>
@@ -124,6 +125,9 @@ export default {
     };
   },
   props: {
+    type: {
+      type: String
+    },
     tipo: {
       type: String
     },
@@ -160,6 +164,11 @@ export default {
       return (
         option.componentOptions.children[0].text.toLowerCase().indexOf(input.toLowerCase()) >= 0
       );
+    },
+    unSelectChange(){
+      this.disable = false;
+      this.valor = null;
+      this.$emit("change", this.valor);
     },
     change() {
       this.$emit("change", this.valor);

@@ -12,14 +12,24 @@
           <p style="margin:0px;" v-if="data.Pospuesta != null">
             <b>Pospuesta: </b><small>{{ data.Pospuesta }}</small>
           </p>
-          <p style="margin:0px;">
+          <p style="margin:0px;" v-if="data.Sucursal!=null">
             <b>Sucursal: </b><small>{{data.Sucursal.Region!=null?data.Sucursal.Region+' - ':''}}{{data.Sucursal.Nombre}}({{data.Sucursal.CodigoSucursal}})</small>
           </p>
           <p v-if="Estado=='Finalizado'" style="margin:0px;">
             <b>Conclusion: </b><small>{{data.Conclusion}}</small>
           </p>
           <p v-else style="margin:0px;">
-            <b>Direccion Sucursal: </b><small>{{data.Sucursal.Direccion}}</small>
+            <div v-if="data.Sucursal!=null">
+              <b>Direccion Sucursal: </b><small>{{data.Sucursal.Direccion}}</small>
+            </div>
+          </p>
+          <p v-if="data.Area != null" style="margin:0px;">
+            <p style="margin:0px;">
+              <b>Codigo de Area: </b><small>{{data.Area.codArea}}</small>
+            </p>
+            <p style="margin:0px;">
+              <b>Area: </b><small>{{data.Area.Nombre}}</small>
+            </p>
           </p>
         </b-col>
         <b-col md="6">
@@ -381,12 +391,14 @@ export default {
     if (this.data != null) {
       this.Estado = this.data.Estado;
       this.Detalle = this.data.Detalle;
-      if (this.data.Sucursal.Region!=null) {
-        if (this.data.Sucursal.Region!="") {
-          for (let i = 0; i < this.Colores.length; i++) {
-            if (this.Colores[i]["Region"]==this.data.Sucursal.Region) {
-              this.Border=this.Colores[i]["Color"];
-              i=this.Colores.length;
+      if (this.data.Sucursal!=null) {
+        if (this.data.Sucursal.Region!=null) {
+          if (this.data.Sucursal.Region!="") {
+            for (let i = 0; i < this.Colores.length; i++) {
+              if (this.Colores[i]["Region"]==this.data.Sucursal.Region) {
+                this.Border=this.Colores[i]["Color"];
+                i=this.Colores.length;
+              }
             }
           }
         }

@@ -32,41 +32,8 @@
             </b-form-group>
             <b-form-group class="col-md-2" label="Mes:" label-for="Mes" label-cols-sm="2" label-align-sm="right" >
               <a-select label-in-value :default-value="{ key: '' }" style="width: 150px;margin-left:5px;margin-right:5px;" @change="cambioSELECTSTATEMES" >
-                <a-select-option value="1">
-                  Enero
-                </a-select-option>
-                <a-select-option value="2">
-                  Febrero
-                </a-select-option>
-                <a-select-option value="3">
-                  Marzo
-                </a-select-option>
-                <a-select-option value="4">
-                  Abril
-                </a-select-option>
-                <a-select-option value="5">
-                  Mayo
-                </a-select-option>
-                <a-select-option value="6">
-                  Junio
-                </a-select-option>
-                <a-select-option value="7">
-                  Julio
-                </a-select-option>
-                <a-select-option value="8">
-                  Agosto
-                </a-select-option>
-                <a-select-option value="9">
-                  Septiembre
-                </a-select-option>
-                <a-select-option value="10">
-                  Octubre
-                </a-select-option>
-                <a-select-option value="11">
-                  Noviembre
-                </a-select-option>
-                <a-select-option value="12">
-                  Diciembre
+                <a-select-option v-for="m in MESES" :value="m.ID">
+                  {{m.MES}}
                 </a-select-option>
               </a-select>
             </b-form-group>
@@ -118,8 +85,22 @@ export default {
       data: [],
       permiso: null,
       ESTADO:"",
-      MES:"",
+      MES:0,
       data_Filtro:[],
+      MESES:[
+        {"MES" : "Enero", "ID" : 1},
+        {"MES" : "Febrero", "ID" : 2},
+        {"MES" : "Marzo", "ID" : 3},
+        {"MES" : "Abril", "ID" : 4},
+        {"MES" : "Mayo", "ID" : 5},
+        {"MES" : "Junio", "ID" : 6},
+        {"MES" : "Julio", "ID" : 7},
+        {"MES" : "Agosto", "ID" : 8},
+        {"MES" : "Septiembre", "ID" : 9},
+        {"MES" : "Octubre", "ID" : 10},
+        {"MES" : "Noviembre", "ID" : 11},
+        {"MES" : "Diciembre", "ID" : 12}
+      ],
       consulta: gql`
         query {
           tareas {
@@ -163,6 +144,11 @@ export default {
               TelfInterno
               Correo
               Region
+            }
+            Area {
+              ID
+              codArea
+              Nombre
             }
           }
         }
@@ -210,6 +196,11 @@ export default {
               TelfInterno
               Correo
             }
+            Area {
+              ID
+              codArea
+              Nombre
+            }
           }
         }
       `
@@ -255,7 +246,7 @@ export default {
       */
     },
     async buscar() {
-      if (this.MES.length>0 && this.ESTADO.length>0 && this.b.length>0) {
+      if (this.MES>0 && this.ESTADO.length>0 && this.b.length>0) {
         this.validacionR = true;
         await this.$apollo
           .query({
@@ -264,7 +255,7 @@ export default {
               Busqueda: this.busqueda,
               Tipo: this.b,
               ESTADO: this.ESTADO,
-              MES: this.MES
+              MES: String(this.MES)
             },
             fetchPolicy: "network-only"
           })
